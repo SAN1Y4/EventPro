@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Booking Successful{% endblock %}
+
+{% block content %}
+
+<div class="container py-5 text-center">
+
+    <h1 class="text-success">
+        ✅ Booking Successful
+    </h1>
+
+    <p class="mt-3">
+        Thank you! Your booking has been submitted successfully.
+    </p>
+
+    <a href="{% url 'my_bookings' %}" class="btn btn-primary mt-3">
+        View My Bookings
+    </a>
+
+</div>
+
+{% endblock %}

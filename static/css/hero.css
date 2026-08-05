@@ -1,0 +1,322 @@
+/* ===========================
+   HERO SECTION
+=========================== */
+
+.hero{
+    position:relative;
+    min-height:100vh;
+    background:#081221;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+}
+
+.hero::before{
+
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:url("../images/hero/hero1.jpg") center center/cover no-repeat;
+
+    opacity:.28;
+}
+
+.overlay{
+
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        90deg,
+        rgba(8,18,33,.92),
+        rgba(8,18,33,.72),
+        rgba(8,18,33,.35)
+    );
+
+}
+
+/* ===========================
+NAVBAR
+=========================== */
+
+.custom-navbar{
+
+    background:rgba(8,18,33,.25);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    transition:.4s;
+
+}
+
+.navbar-brand{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:2rem;
+
+    color:white !important;
+
+}
+
+.navbar-brand span{
+
+    color:#d4af37;
+
+}
+
+.nav-link{
+
+    color:white !important;
+
+    margin-left:20px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.nav-link:hover{
+
+    color:#d4af37 !important;
+
+}
+
+/* ===========================
+HERO CONTENT
+=========================== */
+
+.hero .container{
+
+    position:relative;
+
+    z-index:10;
+
+}
+
+.hero-small{
+
+    color:#d4af37;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    font-size:.9rem;
+
+    margin-bottom:20px;
+
+}
+
+.hero-title{
+
+    font-size:4rem;
+
+    font-weight:700;
+
+    line-height:1.15;
+
+    color:white;
+
+}
+
+.hero-title span{
+
+    color:#d4af37;
+
+}
+
+.hero-text{
+
+    color:#d7d7d7;
+
+    margin-top:25px;
+
+    font-size:1.1rem;
+
+    line-height:1.9;
+
+    max-width:550px;
+
+}
+
+
+
+
+/* ===========================
+BUTTONS
+=========================== */
+
+.btn-warning{
+
+    background:#d4af37;
+
+    border:none;
+
+    color:#081221;
+
+    font-weight:600;
+
+    padding:14px 32px;
+
+    border-radius:50px;
+
+    transition:.35s;
+
+}
+
+.btn-warning:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 35px rgba(212,175,55,.35);
+
+}
+
+.btn-outline-light{
+
+    border-radius:50px;
+
+    padding:14px 32px;
+
+}
+
+/* ===========================
+IMAGE
+=========================== */
+
+.hero-image{
+
+    position:relative;
+
+    text-align:center;
+
+}
+
+.hero-image img{
+
+    width:100%;
+
+    max-width:520px;
+
+    border-radius:25px;
+
+    box-shadow:0 40px 70px rgba(0,0,0,.45);
+
+    animation:floatImage 5s ease-in-out infinite;
+
+}
+
+@keyframes floatImage{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+/* ===========================
+STATS
+=========================== */
+
+.hero-stats{
+
+    display:flex;
+
+    gap:50px;
+
+    margin-top:60px;
+
+}
+
+.hero-stats h3{
+
+    color:white;
+
+    font-size:2rem;
+
+    margin-bottom:6px;
+
+}
+
+.hero-stats p{
+
+    color:#bbb;
+
+    margin:0;
+
+}
+
+
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:991px){
+
+.hero{
+
+text-align:center;
+
+padding-top:100px;
+
+}
+
+.hero-title{
+
+font-size:3rem;
+
+}
+
+.hero-text{
+
+margin:auto;
+
+}
+
+.hero-stats{
+
+justify-content:center;
+
+margin-bottom:50px;
+
+}
+
+.hero-image{
+
+margin-top:40px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.hero-title{
+
+font-size:2.3rem;
+
+}
+
+.hero-stats{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+}

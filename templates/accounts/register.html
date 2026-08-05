@@ -1,0 +1,132 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6 col-lg-5">
+
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <div class="card-header bg-warning text-center py-3">
+
+                    <h2 class="mb-0">Create Your Account</h2>
+
+                </div>
+
+                <div class="card-body p-4">
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        {% for field in form %}
+
+                            <div class="mb-3">
+
+                                <label class="form-label fw-bold">
+                                    {{ field.label }}
+                                </label>
+                                {% if field.name == "password" or field.name == "password1" or field.name == "password2" %}
+                                <div class="input-group">
+
+                                          {{ field }}
+
+                                         <span class="input-group-text toggle-password"
+                                        data-target="{{ field.id_for_label }}"
+                                        style="cursor:pointer;">
+
+                                       <i class="bi bi-eye"></i>
+
+                                      </span>
+
+                                     </div>
+
+                             {% else %}
+
+                          {{ field }}
+
+                         {% endif %}
+
+    {% if field.errors %}
+
+    <div class="text-danger small mt-1">
+
+        {{ field.errors }}
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endfor %}
+                               
+
+                        <button type="submit" class="btn btn-warning w-100 py-2">
+
+                            Create Account
+
+                        </button>
+
+                    </form>
+
+                    <hr>
+
+                    <p class="text-center mb-0">
+
+                        Already have an account?
+
+                        <a href="{% url 'login' %}">
+
+                            Login Here
+
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+document.querySelectorAll(".toggle-password").forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        const input = document.getElementById(
+            this.dataset.target
+        );
+
+        if (input.type === "password") {
+
+            input.type = "text";
+
+            this.innerHTML = '<i class="bi bi-eye-slash"></i>';
+
+        } else {
+
+            input.type = "password";
+
+            this.innerHTML = '<i class="bi bi-eye"></i>';
+
+        }
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

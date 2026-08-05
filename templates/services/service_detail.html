@@ -1,0 +1,38 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}{{ service.name }}{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+<div class="row">
+
+<div class="col-lg-6">
+
+<img src="{{ service.image.url }}"
+class="img-fluid rounded shadow">
+
+</div>
+
+<div class="col-lg-6">
+
+<h1>{{ service.name }}</h1>
+
+<p>
+
+{{ service.description }}
+
+</p>
+
+<a href="{% url 'book_service' %}" class="btn btn-warning btn-lg">
+    Book Consultation
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

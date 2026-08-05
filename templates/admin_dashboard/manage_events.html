@@ -1,0 +1,90 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Manage Events{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between mb-4">
+
+        <h2>Manage Events</h2>
+
+        <a href="{% url 'add_event' %}" class="btn btn-success">
+            ➕ Add Event
+        </a>
+
+    </div>
+
+    <table class="table table-bordered table-hover shadow">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>Image</th>
+
+                <th>Title</th>
+
+                <th>Location</th>
+
+                <th>Date</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for event in events %}
+
+            <tr>
+
+                <td width="120">
+                    <img src="{{ event.image.url }}"
+                         style="height:70px;"
+                         class="img-fluid rounded">
+                </td>
+
+                <td>{{ event.title }}</td>
+
+                <td>{{ event.location }}</td>
+
+                <td>{{ event.date }}</td>
+
+                <td>
+
+                    <a href="{% url 'edit_event' event.id %}"
+                       class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+
+                    <a href="{% url 'delete_event' event.id %}"
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('Delete this event?')">
+                        Delete
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% empty %}
+
+            <tr>
+                <td colspan="5" class="text-center">
+                    No Events Found
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

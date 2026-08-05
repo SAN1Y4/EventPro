@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Registration Successful{% endblock %}
+
+{% block content %}
+
+<div class="container py-5 text-center">
+
+    <h1 class="text-success">
+        🎉 Registration Successful!
+    </h1>
+
+    <p class="lead">
+
+        Thank you for registering.
+
+    </p>
+
+    <a href="{% url 'public_events' %}"
+       class="btn btn-warning">
+
+        Back to Events
+
+    </a>
+
+</div>
+
+{% endblock %}

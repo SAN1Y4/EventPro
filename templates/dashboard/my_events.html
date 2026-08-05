@@ -1,0 +1,69 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}My Events{% endblock %}
+
+{% block content %}
+
+<div class="container py-5 mt-5">
+
+<h2 class="mb-4">My Event Registrations</h2>
+
+{% if registrations %}
+
+<table class="table table-bordered table-hover">
+
+    <thead class="table-dark">
+        <tr>
+            <th>Event</th>
+            <th>Tickets</th>
+            <th>Registration Date</th>
+            <th>Ticket</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for registration in registrations %}
+
+        <tr>
+            <td>{{ registration.event.title }}</td>
+            <td>{{ registration.number_of_tickets }}</td>
+            <td>{{ registration.registration_date }}</td>
+            <td>
+
+        <a href="{% url 'event_ticket' registration.id %}"
+           class="btn btn-warning btn-sm">
+
+            🎫 View Ticket
+
+        </a>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% else %}
+
+<div class="text-center py-5">
+
+    <h3>No Registered Events</h3>
+
+    <p class="text-muted">
+        You haven't registered for any events yet.
+    </p>
+
+    <a href="{% url 'public_events' %}" class="btn btn-warning">
+        Explore Events
+    </a>
+
+</div>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

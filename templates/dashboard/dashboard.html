@@ -1,0 +1,261 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold">
+            Welcome, {{ request.user.username }} 👋
+        </h1>
+         <div class="row my-5">
+
+    <div class="col-md-3 mb-3">
+
+        <div class="card text-center shadow border-0">
+
+            <div class="card-body">
+
+                <h2 class="text-primary">
+                    {{ total_bookings }}
+                </h2>
+
+                <p class="mb-0">
+                    Services Booked
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-3">
+
+        <div class="card text-center shadow border-0">
+
+            <div class="card-body">
+
+                <h2 class="text-danger">
+                    {{ total_events }}
+                </h2>
+
+                <p class="mb-0">
+                    Event Tickets
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-3">
+
+        <div class="card text-center shadow border-0">
+
+            <div class="card-body">
+
+                <h2 class="text-success">
+                    {{ approved_bookings }}
+                </h2>
+
+                <p class="mb-0">
+                    Approved
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-3">
+
+        <div class="card text-center shadow border-0">
+
+            <div class="card-body">
+
+                <h2 class="text-warning">
+                    {{ pending_bookings }}
+                </h2>
+
+                <p class="mb-0">
+                    Pending
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+        <p class="text-muted">
+            Manage your services, event tickets and account from one place.
+        </p>
+
+
+
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Book Services -->
+        <div class="col-md-4">
+
+            <div class="card shadow h-100 border-0 text-center">
+
+                <div class="card-body">
+
+                    <i class="bi bi-briefcase-fill fs-1 text-warning"></i>
+
+                    <h4 class="mt-3">Book Services</h4>
+
+                    <p class="text-muted">
+                        Wedding, Birthday, Reception, Catering and more.
+                    </p>
+
+                    <a href="{% url 'services' %}" class="btn btn-warning">
+                        Explore Services
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Public Events -->
+        <div class="col-md-4">
+
+            <div class="card shadow h-100 border-0 text-center">
+
+                <div class="card-body">
+
+                    <i class="bi bi-music-note-beamed fs-1 text-primary"></i>
+
+                    <h4 class="mt-3">Public Events</h4>
+
+                    <p class="text-muted">
+                        Browse concerts, music shows and public events.
+                    </p>
+
+                    <a href="{% url 'public_events' %}" class="btn btn-primary">
+                        Explore Events
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- My Bookings -->
+        <div class="col-md-4">
+
+            <div class="card shadow h-100 border-0 text-center">
+
+                <div class="card-body">
+
+                    <i class="bi bi-calendar-check-fill fs-1 text-success"></i>
+
+                    <h4 class="mt-3">My Bookings</h4>
+
+                    <p class="text-muted">
+                        Track your service booking status.
+                    </p>
+
+                    <a href="{% url 'my_bookings' %}" class="btn btn-success">
+                        View Bookings
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- My Tickets -->
+        <div class="col-md-4">
+
+            <div class="card shadow h-100 border-0 text-center">
+
+                <div class="card-body">
+
+                    <i class="bi bi-ticket-perforated-fill fs-1 text-danger"></i>
+
+                    <h4 class="mt-3">My Event Tickets</h4>
+
+                    <p class="text-muted">
+                        View your registered public events.
+                    </p>
+
+                    <a href="{% url 'my_events' %}" class="btn btn-danger">
+                        View Tickets
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Profile -->
+        <div class="col-md-4">
+
+            <div class="card shadow h-100 border-0 text-center">
+
+                <div class="card-body">
+
+                    <i class="bi bi-person-circle fs-1 text-info"></i>
+
+                    <h4 class="mt-3">My Profile</h4>
+
+                    <p class="text-muted">
+                        View your account information.
+                    </p>
+
+                    <a href="{% url 'profile' %}" class="btn btn-info text-white">
+                        Profile
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Contact -->
+        <div class="col-md-4">
+
+            <div class="card shadow h-100 border-0 text-center">
+
+                <div class="card-body">
+
+                    <i class="bi bi-envelope-fill fs-1 text-secondary"></i>
+
+                    <h4 class="mt-3">Contact Us</h4>
+
+                    <p class="text-muted">
+                        Need help? Contact the EventPro team.
+                    </p>
+
+                    <a href="{% url 'contact' %}" class="btn btn-secondary">
+                        Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

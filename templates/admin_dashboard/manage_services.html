@@ -1,0 +1,94 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Manage Services{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between mb-4">
+
+        <h2>Manage Services</h2>
+
+        <a href="{% url 'add_service' %}" class="btn btn-success">
+            ➕ Add Service
+        </a>
+
+    </div>
+
+    <table class="table table-bordered table-hover shadow">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>Image</th>
+
+                <th>Name</th>
+
+                <th>Description</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for service in services %}
+
+            <tr>
+
+                <td width="120">
+                    <img src="{{ service.image.url }}"
+                         class="img-fluid rounded"
+                         style="height:70px;">
+                </td>
+
+                <td>{{ service.name }}</td>
+
+                <td>{{ service.description|truncatewords:10 }}</td>
+
+                <td>
+
+                    <a href="{% url 'edit_service' service.id %}"
+                       class="btn btn-warning btn-sm">
+
+                        Edit
+
+                    </a>
+
+                    <a href="{% url 'delete_service' service.id %}"
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('Delete this service?')">
+
+                        Delete
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% empty %}
+
+            <tr>
+
+                <td colspan="4" class="text-center">
+
+                    No Services Found
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

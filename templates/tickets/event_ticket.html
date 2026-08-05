@@ -1,0 +1,155 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}Event Ticket{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow-lg border-0">
+
+                <div class="card-header bg-warning text-dark text-center">
+
+                    <h2 class="fw-bold mb-0">
+                        🎫 EVENTPRO TICKET
+                    </h2>
+
+                </div>
+
+                <div class="card-body p-5">
+
+                    <div class="text-center mb-4">
+
+                        <h3 class="fw-bold">
+                            {{ registration.event.title }}
+                        </h3>
+
+                        <span class="badge bg-success fs-6">
+                            Confirmed
+                        </span>
+
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+
+                            <strong>👤 Ticket Holder</strong>
+
+                            <p>{{ registration.full_name }}</p>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <strong>📧 Email</strong>
+
+                            <p>{{ registration.email }}</p>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <strong>📞 Phone</strong>
+
+                            <p>{{ registration.phone }}</p>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <strong>🎟 Tickets</strong>
+
+                            <p>{{ registration.number_of_tickets }}</p>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <strong>📅 Event Date</strong>
+
+                            <p>{{ registration.event.date }}</p>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <strong>🕒 Time</strong>
+
+                            <p>{{ registration.event.time }}</p>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <strong>📍 Venue</strong>
+
+                            <p>{{ registration.event.location }}</p>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <strong>💰 Ticket Price</strong>
+
+                            <p>₹{{ registration.event.ticket_price }}</p>
+
+                        </div>
+
+                    </div>
+
+                    <hr>
+
+                    <div class="text-center">
+
+                        <h5>
+
+                            Booking ID
+
+                        </h5>
+
+                        <h3 class="text-primary">
+
+                            EVT-{{ registration.id }}
+
+                        </h3>
+
+                    </div>
+
+                </div>
+
+                <div class="card-footer text-center">
+
+                    <button
+                        class="btn btn-success me-2"
+                        onclick="window.print()">
+
+                        🖨 Print Ticket
+
+                    </button>
+
+                    <a href="{% url 'dashboard' %}"
+                       class="btn btn-warning">
+
+                        Back to Dashboard
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

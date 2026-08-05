@@ -1,0 +1,26 @@
+:root{
+
+--primary:#D4AF37;
+--secondary:#0B1120;
+
+--card:#111827;
+
+--white:#F8FAFC;
+
+--gray:#94A3B8;
+
+--light:#E5E7EB;
+
+--gradient:linear-gradient(135deg,#0B1120,#111827);
+
+--radius:18px;
+
+--shadow:0 10px 30px rgba(0,0,0,.35);
+
+/* Override Bootstrap muted text */
+
+.text-muted{
+    color: #5a5a5a !important;
+}
+
+}

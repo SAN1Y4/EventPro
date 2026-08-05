@@ -1,0 +1,105 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Event Registrations{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h2 class="fw-bold mb-4">
+
+        Public Event Registrations
+
+    </h2>
+
+    <div class="table-responsive">
+
+        <table class="table table-hover table-bordered align-middle">
+
+            <thead class="table-dark">
+
+                <tr>
+
+                    <th>Event</th>
+
+                    <th>User</th>
+
+                    <th>Email</th>
+
+                    <th>Phone</th>
+
+                    <th>Tickets</th>
+
+                    <th>Registration Date</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for reg in registrations %}
+
+                <tr>
+
+                    <td>
+
+                        {{ reg.event.title }}
+
+                    </td>
+
+                    <td>
+
+                        {{ reg.full_name }}
+
+                    </td>
+
+                    <td>
+
+                        {{ reg.email }}
+
+                    </td>
+
+                    <td>
+
+                        {{ reg.phone }}
+
+                    </td>
+
+                    <td>
+
+                        {{ reg.number_of_tickets }}
+
+                    </td>
+
+                    <td>
+
+                        {{ reg.registration_date }}
+
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="6" class="text-center">
+
+                        No registrations found.
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

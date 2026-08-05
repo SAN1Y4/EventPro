@@ -1,0 +1,161 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Heading -->
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold">
+            📊 Admin Dashboard
+        </h1>
+
+        <p class="text-muted">
+            Welcome to EventPro Administration Panel
+        </p>
+
+    </div>
+
+    <!-- Statistics -->
+
+    <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6">
+            <div class="card shadow border-0 text-center h-100">
+                <div class="card-body">
+                    <i class="bi bi-people-fill display-4 text-warning"></i>
+                    <h2 class="mt-3">{{ total_users }}</h2>
+                    <p class="text-muted mb-0">Total Users</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="card shadow border-0 text-center h-100">
+                <div class="card-body">
+                    <i class="bi bi-briefcase-fill display-4 text-primary"></i>
+                    <h2 class="mt-3">{{ total_services }}</h2>
+                    <p class="text-muted mb-0">Services</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="card shadow border-0 text-center h-100">
+                <div class="card-body">
+                    <i class="bi bi-calendar-event-fill display-4 text-success"></i>
+                    <h2 class="mt-3">{{ total_events }}</h2>
+                    <p class="text-muted mb-0">Events</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card shadow border-0 text-center h-100">
+                <div class="card-body">
+                    <i class="bi bi-journal-check display-4 text-danger"></i>
+                    <h2 class="mt-3">{{ total_bookings }}</h2>
+                    <p class="text-muted mb-0">Bookings</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card shadow border-0 text-center h-100">
+                <div class="card-body">
+                    <i class="bi bi-ticket-perforated-fill display-4 text-info"></i>
+                    <h2 class="mt-3">{{ total_registrations }}</h2>
+                    <p class="text-muted mb-0">Registrations</p>
+                </div>
+            </div>
+        </div>
+     
+    <div class="col-md-4">
+
+    <div class="card shadow border-0">
+
+        <div class="card-body text-center">
+
+            <i class="bi bi-envelope-fill display-5 text-dark"></i>
+
+            <h4 class="mt-3">
+                Contact Messages
+            </h4>
+
+            <a href="{% url 'contact_messages' %}"
+               class="btn btn-dark mt-2">
+
+                Open
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+    </div>
+
+    <!-- Quick Actions -->
+
+    <div class="mt-5">
+
+        <h3 class="fw-bold mb-4">
+            ⚡ Quick Actions
+        </h3>
+
+        <div class="row g-3">
+
+            <div class="col-lg-4 col-md-6">
+                <a href="{% url 'manage_services' %}" class="btn btn-outline-primary w-100 py-3">
+                    🛠 Manage Services
+                </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <a href="{% url 'manage_events' %}" class="btn btn-outline-success w-100 py-3">
+                    🎉 Manage Events
+                </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <a href="{% url 'manage_bookings' %}" class="btn btn-outline-warning w-100 py-3">
+                    📅 Manage Bookings
+                </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <a href="{% url 'manage_registrations' %}" class="btn btn-outline-info w-100 py-3">
+                    🎟 Event Registrations
+                </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+    <div class="card shadow border-0 text-center h-100">
+        <div class="card-body">
+            <i class="bi bi-envelope-fill display-4 text-secondary"></i>
+            <h2 class="mt-3">{{ total_messages }}</h2>
+            <p class="text-muted mb-0">Contact Messages</p>
+        </div>
+    </div>
+</div>
+
+            <div class="col-lg-4 col-md-6">
+                <a href="/admin/" class="btn btn-dark w-100 py-3">
+                    ⚙ Django Admin
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

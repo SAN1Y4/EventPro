@@ -1,0 +1,136 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}{{ event.title }}{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row">
+
+        <!-- Event Image -->
+        <div class="col-lg-6 mb-4">
+
+            <img src="{{ event.image.url }}"
+                 class="img-fluid rounded shadow w-100"
+                 style="max-height:500px; object-fit:cover;">
+
+        </div>
+
+        <!-- Event Details -->
+        <div class="col-lg-6">
+
+            <h1 class="fw-bold mb-3">
+                {{ event.title }}
+            </h1>
+
+            <hr>
+
+            <p>
+                👤 <strong>Organizer:</strong>
+                {{ event.organizer }}
+            </p>
+
+            <p>
+                📍 <strong>Location:</strong>
+                {{ event.location }}
+            </p>
+
+            <p>
+                📅 <strong>Date:</strong>
+                {{ event.date }}
+            </p>
+
+            <p>
+                🕒 <strong>Time:</strong>
+                {{ event.time }}
+            </p>
+
+            <p class="fs-5 text-success">
+
+                💰 <strong>Ticket Price:</strong>
+
+                ₹{{ event.ticket_price }}
+
+            </p>
+
+            {% if event.available_tickets > 20 %}
+
+<div class="alert alert-success">
+    ✅ {{ event.available_tickets }} Tickets Available
+</div>
+
+{% elif event.available_tickets > 5 %}
+
+<div class="alert alert-warning">
+    ⚠ Only {{ event.available_tickets }} Tickets Left
+</div>
+
+{% elif event.available_tickets > 0 %}
+
+<div class="alert alert-danger">
+    🔥 Hurry! Only {{ event.available_tickets }} Tickets Left
+</div>
+
+{% else %}
+
+<div class="alert alert-dark">
+    ❌ Sold Out
+</div>
+
+{% endif %}
+            
+
+            <hr>
+
+            <h4>About this Event</h4>
+
+            <p class="text-muted">
+
+                {{ event.description }}
+
+            </p>
+
+            {% if event.available_tickets > 0 %}
+
+              <p>
+    <strong>Available Tickets:</strong>
+    {{ event.available_tickets }} / {{ event.total_tickets }}
+</p>
+
+{% if event.available_tickets > 0 %}
+
+<a href="{% url 'register_event' event.id %}"
+   class="btn btn-warning btn-lg">
+
+    Register Now
+
+</a>
+
+{% else %}
+
+<button class="btn btn-danger btn-lg" disabled>
+
+    Sold Out
+
+</button>
+
+{% endif %}  
+
+            {% else %}
+
+                <button class="btn btn-secondary btn-lg mt-3" disabled>
+
+                    Sold Out
+
+                </button>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

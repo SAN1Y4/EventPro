@@ -1,0 +1,74 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}Our Services | EventPro{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="py-5 bg-dark text-white">
+
+    <div class="container text-center">
+
+        <h1 class="display-4 fw-bold">
+            Our Services
+        </h1>
+
+        <p class="lead">
+            Professional event planning for every special occasion.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- Services -->
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="row g-4">
+
+{% for service in services %}
+
+<div class="col-lg-4 col-md-6">
+
+<div class="card border-0 shadow-lg h-100">
+
+<img src="{{ service.image.url }}"
+class="card-img-top"
+style="height:260px;object-fit:cover;">
+
+<div class="card-body">
+
+<h3>{{ service.name }}</h3>
+
+<p class="text-muted">
+
+{{ service.description|truncatewords:25 }}
+
+</p>
+
+<a href="{% url 'service_detail' service.id %}"
+class="btn btn-warning">
+
+View Details
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}
