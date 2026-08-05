@@ -109,9 +109,9 @@ http://127.0.0.1:8000/
 
 ## 📷 Screenshots
 
-(Add screenshots here later.)
+<img width="1920" height="974" alt="Screenshot 2026-08-03 230533" src="https://github.com/user-attachments/assets/e6bf7769-4819-445c-b1b1-65a40a185304" />
 
----
+
 
 ## 👩‍💻 Developer
 
