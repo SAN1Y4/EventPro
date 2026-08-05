@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5(*vg(aqxg4&b4v2on7yxkqhrg4n-nb%+yokl_^=5+$t14bb9g'
+SECRET_KEY = "YOUR_SECRET_KEY"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -78,7 +78,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'eventpro_db',
         'USER': 'root',
-        'PASSWORD': 'Root#2004',
+        'PASSWORD': 'YOUR_DATABASE_PASSWORD',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
